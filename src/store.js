@@ -7,13 +7,13 @@ import { reduxFirestore, firestoreReducer } from "redux-firestore";
 import notifyReducer from './reducers/notifyReducer';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBpWa8XJ9p7-jK0V-N-18m2ZEuEW6GYCTM",
-  authDomain: "carcarejobs-fdc81.firebaseapp.com",
-  databaseURL: "https://carcarejobs-fdc81.firebaseio.com",
-  projectId: "carcarejobs-fdc81",
-  storageBucket: "carcarejobs-fdc81.appspot.com",
-  messagingSenderId: "819238424388",
-  appId: "1:819238424388:web:4fd736fb1f7897c5"
+  apiKey: "AIzaSyAyTob7HaQ_DM6TiUjh8fOyqe4STdsE_FY",
+  authDomain: "carcareboard.firebaseapp.com",
+  databaseURL: "https://carcareboard.firebaseio.com",
+  projectId: "carcareboard",
+  storageBucket: "",
+  messagingSenderId: "352560105365",
+  appId: "1:352560105365:web:de107143f51e22fc"
 };
 
 // react redux firebase config
