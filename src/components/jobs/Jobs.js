@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { compose } from "redux";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import PropTypes from "prop-types";
+import Spinner from "../layout/Spinner";
 
 class Jobs extends Component {
   render() {
@@ -11,12 +13,8 @@ class Jobs extends Component {
     if (jobs) {
       return (
         <div>
-          <div className="col-md-6">
-            <h2>
-              <i className="fas fa-user" /> Jobs{" "}
-            </h2>
-          </div>
-          <div className="col-md-6" />
+          <div className="col" />
+          <i className="fas fa-tools" /> {" "}Jobs{" "}
           <table className="table table-striped">
             <thead className="thead-inverse">
               <tr>
@@ -39,6 +37,24 @@ class Jobs extends Component {
                   <td>{job.tech}</td>
                   <td>{job.status}</td>
                   <td>{job.promised}</td>
+                  <td>
+                    <Link
+                      to={`/job/edit/${job.id}`}
+                      className="btn btn-secondary btn-sm"
+                    >
+                      <i className="fas fa-arrow-circle-right" /> Edit
+                    </Link>{" "}
+                    <Link
+                      to={`/job/${job.id}`}
+                      className="btn btn-danger btn-sm"
+                    >
+                      <i
+                        onClick={this.onDeleteClick}
+                        className="fas fa-arrow-circle-right"
+                      />{" "}
+                      Delete
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -46,7 +62,7 @@ class Jobs extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <Spinner />;
     }
   }
 }

@@ -4,13 +4,11 @@ import SideBar from "../layout/SideBar";
 
 export default function DashBoard() {
   return (
-    <div className="row">
-      <div className="col-md-10">
+    
+      <div >
+      <SideBar />
         <Jobs />
       </div>
-      <div className="col-md-2">
-        <SideBar />
-      </div>
-    </div>
+    
   );
 }

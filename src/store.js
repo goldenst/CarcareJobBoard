@@ -4,7 +4,7 @@ import "firebase/firestore";
 import { reactReduxFirebase, firebaseReducer } from "react-redux-firebase";
 import { reduxFirestore, firestoreReducer } from "redux-firestore";
 // Reducers
-// todo
+import notifyReducer from './reducers/notifyReducer';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBpWa8XJ9p7-jK0V-N-18m2ZEuEW6GYCTM",
@@ -27,7 +27,8 @@ firebase.initializeApp(firebaseConfig);
 
 // init firestore
 // const firestore = firebase.firestore();
-
+// const settings = {timestampsInSnapshots: true };
+//   firestore.settings(settings)
 // Add reactReduxFirebase enhancer when making store creator
 const createStoreWithFirebase = compose(
   reactReduxFirebase(firebase, rrfConfig), // firebase instance as first argument
@@ -37,7 +38,8 @@ const createStoreWithFirebase = compose(
 // Add firebase to reducers
 const rootReducer = combineReducers({
   firebase: firebaseReducer,
-  firestore: firestoreReducer // <- needed if using firestore
+  firestore: firestoreReducer, // <- needed if using firestore
+  notify: notifyReducer
 });
 
 // Create store with reducers and initial state
